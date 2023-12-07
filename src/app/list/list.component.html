@@ -1,0 +1,26 @@
+<div class="products">
+  <search></search>
+  <div *ngFor="let product of products">
+    <img [src]="product.img" alt="img" />
+    <p>name : {{ product.name }}</p>
+    <p>price : {{ product.price }}$</p>
+    <p>color : {{ product.color }}</p>
+    <p>discount : {{ product.discount }}%</p>
+    <p>
+      price afted discount : {{ getDiscount(product.price, product.discount) }}$
+    </p>
+    <p>{{ product.inStock ? "in stock" : "is not in stock" }}</p>
+    <button [disabled]="!product.inStock">buy</button>
+    <input
+      type="text"
+      (input)="onNameChange($event)"
+      [value]="name"
+      [attr.aria-hidden]=""
+    />
+    <p>name={{ name }}</p>
+
+    <button (click)="add()">+</button>
+    <p>{{ addToCard }}</p>
+    <button (click)="sub()">-</button>
+  </div>
+</div>
