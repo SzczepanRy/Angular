@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderElsComponent } from './header/header-els/header-els.component';
-import { ListComponent } from './list/list.component';
-import { SearchComponent } from './list/search/search.component';
+import { ContainerComponent } from './container/container.component';
+import { SearchComponent } from './container/search/search.component';
 import { FormsModule } from '@angular/forms';
+import { ListComponent } from './container/list/list.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +16,9 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     HeaderElsComponent,
-    ListComponent,
+    ContainerComponent,
     SearchComponent,
+    ListComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
