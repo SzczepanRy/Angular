@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'list',
@@ -6,6 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent {
+  countInStock(): number {
+    return this.products.filter((el) => el.is_in_inventory).length;
+  }
+
+  selectedRodio: string = 'all';
+
+  onFilterChanged(value: string) {
+    console.log(value);
+    this.selectedRodio = value;
+  }
+
+  @Input()
+  searchText: string = '';
+
+
+  
   products = [
     {
       id: 1,

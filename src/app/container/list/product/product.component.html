@@ -1,0 +1,26 @@
+<div>
+  <img src="{{ product?.imageURL }}" alt="" />
+  <div class="anem">{{ product?.name }}</div>
+  <div class="price">{{ product?.price }}</div>
+  <!-- <div class="discount" *ngIf="product?.discountPrice">
+    Discounted
+    {{ (100 - (product?.discountPrice / product?.price) * 100).toFixed(0) }}%
+  </div> -->
+  <div class="desc">
+    {{ product?.gender }} , {{ product?.category }} , {{ product?.brand }}
+  </div>
+  <div style="display: flex; width: 200px" class="colors">
+    <div style="margin-right: 10px" *ngFor="let col of product?.color">
+      {{ col }}
+    </div>
+  </div>
+  <div
+    [ngStyle]="{
+      fontWeight: 'bold',
+      color: product?.is_in_inventory ? 'green' : 'red'
+    }"
+    class="inStock"
+  >
+    {{ product?.is_in_inventory ? "in inventory" : "not in inventory" }}
+  </div>
+</div>

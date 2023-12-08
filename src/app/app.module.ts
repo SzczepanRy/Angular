@@ -9,6 +9,8 @@ import { ContainerComponent } from './container/container.component';
 import { SearchComponent } from './container/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { ListComponent } from './container/list/list.component';
+import { ProductComponent } from './container/list/product/product.component';
+import { FillterComponent } from './container/list/fillter/fillter.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ListComponent } from './container/list/list.component';
     ContainerComponent,
     SearchComponent,
     ListComponent,
+    ProductComponent,
+    FillterComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],

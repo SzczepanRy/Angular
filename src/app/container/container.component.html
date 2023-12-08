@@ -1,6 +1,6 @@
 <div class="products">
-  <search></search>
-  <list></list>
+  <search (searchChanged)="setSearchText($event)"></search>
+  <list [searchText]="searchText"></list>
   <!-- <div *ngFor="let product of products">
     <img [src]="product.img" alt="img" />
     <p>name : {{ product.name }}</p>

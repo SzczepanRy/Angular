@@ -1,29 +1,16 @@
+<app-fillter
+  [inStock]="countInStock()"
+  [all]="products.length"
+  [outOfStock]="products.length - countInStock()"
+  (selectedRadioChanged)="onFilterChanged($event)"
+></app-fillter>
 <div class="products">
-  <div *ngFor="let prod of products; let i = index">
-    <p>{{ i }}</p>
-    <img src="{{ prod.imageURL }}" alt="" />
-    <div class="anem">{{ prod.name }}</div>
-    <div class="price">{{ prod.price }}</div>
-    <div class="discount" *ngIf="prod.discountPrice">
-      Discounted
-      {{ (100 - (prod.discountPrice / prod.price) * 100).toFixed(0) }}%
-    </div>
-    <div class="desc">
-      {{ prod.gender }} , {{ prod.category }} , {{ prod.brand }}
-    </div>
-    <div style="display: flex; width: 200px" class="colors">
-      <div style="margin-right: 10px" *ngFor="let col of prod.color">
-        {{ col }}
-      </div>
-    </div>
-    <div
-      [ngStyle]="{
-        fontWeight: 'bold',
-        color: prod.is_in_inventory ? 'green' : 'red'
-      }"
-      class="inStock"
-    >
-      {{ prod.is_in_inventory ? "in inventory" : "not in inventory" }}
-    </div>
+  <div *ngFor="let prod of products">
+    <app-product
+      *ngIf="
+        searchText == '' || prod.name.toLocaleLowerCase().includes(searchText)
+      "
+      [product]="prod"
+    ></app-product>
   </div>
 </div>

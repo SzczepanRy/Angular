@@ -1,5 +1,12 @@
 <div class="bar">
-  <input [(ngModel)]="searchText" type="text" />
-  <button *ngIf="searchText != ''">search</button>
+  <input type="text" #searchInput />
+  <button (click)="setSearch(searchInput)">search</button>
+  <!-- <button
+    [ngClass]="{ green: searchText !== '' }"
+    [disabled]="searchText == ''"
+  >
+    search
+  </button> -->
 </div>
 <p *ngIf="searchText != ''">searching for {{ searchText }}</p>
+,
